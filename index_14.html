@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chalantika | Premium 4-Wheeler Passenger Service</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Artistic Styling Framework */
+        :root {
+            --bg-dark: #12161a;
+            --bg-light: #fbfbfd;
+            --text-dark: #1e252b;
+            --text-light: #f1f3f5;
+            --accent-amber: #f5a623;
+            --accent-soft: #eaecee;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            letter-spacing: -0.2px;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 88%;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* Sophisticated Navigation with Image Logo Slot */
+        header {
+            background-color: rgba(251, 251, 253, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo-frame {
+            display: flex;
+            align-items: center;
+        }
+        .logo-img {
+            height: 55px;
+            width: auto;
+            display: block;
+            object-fit: contain;
+        }
+
+        .whatsapp-top {
+            color: var(--bg-dark);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-bottom: 2px solid var(--accent-amber);
+            padding-bottom: 4px;
+            transition: all 0.3s ease;
+        }
+        .whatsapp-top:hover {
+            color: var(--accent-amber);
+        }
+
+        /* Hero Showcase Section */
+        .hero {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            padding: 120px 0;
+            position: relative;
+        }
+        .hero-content {
+            max-width: 700px;
+        }
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 56px;
+            font-weight: 500;
+            line-height: 1.15;
+            margin-bottom: 25px;
+            color: #ffffff;
+        }
+        .hero h1 em {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            color: var(--accent-amber);
+        }
+        .hero p {
+            font-size: 18px;
+            font-weight: 300;
+            line-height: 1.7;
+            margin-bottom: 40px;
+            color: #a0aab2;
+        }
+        .cta-group {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+        .btn-artistic {
+            background-color: var(--accent-amber);
+            color: var(--bg-dark);
+            text-decoration: none;
+            padding: 16px 36px;
+            font-weight: 600;
+            font-size: 15px;
+            letter-spacing: 0.5px;
+            border-radius: 0px; 
+            transition: transform 0.2s ease, background-color 0.3s ease;
+        }
+        .btn-artistic:hover {
+            background-color: #e0941b;
+            transform: translateY(-2px);
+        }
+        .btn-link {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            border-bottom: 1px solid rgba(255,255,255,0.3);
+            padding-bottom: 4px;
+            transition: 0.3s;
+        }
+        .btn-link:hover {
+            color: var(--accent-amber);
+            border-color: var(--accent-amber);
+        }
+
+        /* Artistic Concept Cards (Services) */
+        .services {
+            padding: 100px 0;
+        }
+        .section-header {
+            margin-bottom: 60px;
+        }
+        .section-header span {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #888;
+            display: block;
+            margin-bottom: 10px;
+        }
+        .section-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 38px;
+            font-weight: 500;
+        }
+        .grid-layout {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        .art-card {
+            background: #ffffff;
+            padding: 40px;
+            border: 1px solid #eaecee;
+            transition: all 0.4s ease;
+        }
+        .art-card:hover {
+            border-color: var(--bg-dark);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+        }
+        .card-num {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-style: italic;
+            color: var(--accent-amber);
+            margin-bottom: 25px;
+            display: block;
+        }
+        .art-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+        .art-card p {
+            color: #606870;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        /* Fleet & Booking Grid Section */
+        .canvas-section {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            padding: 100px 0;
+        }
+        .canvas-box {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: flex-start;
+            gap: 60px;
+        }
+        .canvas-details h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+        .canvas-details p {
+            color: #a0aab2;
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+        .specs-row {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .spec-tag {
+            border: 1px solid rgba(255,255,255,0.15);
+            padding: 8px 20px;
+            font-size: 13px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .canvas-list {
+            list-style: none;
+            margin-bottom: 35px;
+        }
+        .canvas-list li {
+            margin-bottom: 15px;
+            font-size: 15px;
+            color: #cbd3d8;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .canvas-list li::before {
+            content: "";
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            background-color: var(--accent-amber);
+            border-radius: 50%;
+        }
+
+        /* Artistic Vehicle Graphic Box Placeholder */
+        .vehicle-profile-graphic {
+            border: 1px dashed rgba(255, 255, 255, 0.2);
+            background-color: rgba(255, 255, 255, 0.02);
+            padding: 30px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            position: relative;
+        }
+        .graphic-header {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent-amber);
+            margin-bottom: 15px;
+            display: block;
+        }
+        .graphic-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 14px;
+        }
+        .graphic-row:last-child {
+            border-bottom: none;
+        }
+        .graphic-label {
+            color: #8a949d;
+        }
+        .graphic-value {
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        /* Booking Form Interface Container */
+        .form-container {
+            background-color: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 0px;
+            position: relative;
+            min-height: 520px;
+        }
+        .form-container h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 500;
+            margin-bottom: 25px;
+            color: #ffffff;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #a0aab2;
+            margin-bottom: 8px;
+        }
+        .form-control {
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 12px;
+            color: #ffffff;
+            font-size: 14px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            transition: 0.3s;
+        }
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent-amber);
+            background-color: rgba(255, 255, 255, 0.08);
+        }
+        select.form-control option {
+            background-color: var(--bg-dark);
+            color: #ffffff;
+        }
+        
+        /* Map Layout Elements */
+        .map-input-wrapper {
+            display: flex;
+            gap: 10px;
+        }
+        .btn-maps-helper {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 0 15px;
+            font-size: 12px;
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            white-space: nowrap;
+            transition: 0.3s;
+        }
+        .btn-maps-helper:hover {
+            background-color: var(--accent-amber);
+            color: var(--bg-dark);
+            border-color: var(--accent-amber);
+        }
+
+        /* Radio Options Layout Group */
+        .radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 10px;
+        }
+        .radio-label-box {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 14px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .radio-label-box:hover {
+            border-color: rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.06);
+        }
+        .radio-label-box input[type="radio"] {
+            margin-top: 3px;
+            accent-color: var(--accent-amber);
+        }
+        .radio-text-wrapper {
+            display: flex;
+            flex-direction: column;
+        }
+        .radio-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #ffffff;
+        }
+        .radio-desc {
+            font-size: 12px;
+            color: #a0aab2;
+            margin-top: 2px;
+        }
+
+        /* Dynamic Estimate Window Display Box */
+        .price-estimator-box {
+            background: rgba(245, 166, 35, 0.08);
+            border-left: 3px solid var(--accent-amber);
+            padding: 15px;
+            margin: 25px 0 20px 0;
+        }
+        .price-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .price-label {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #cbd3d8;
+        }
+        .price-value {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--accent-amber);
+        }
+        .price-note {
+            font-size: 11px;
+            color: #8a949d;
+            margin-top: 7px;
+            display: block;
+            line-height: 1.4;
+        }
+
+        .btn-submit {
+            width: 100%;
+            background-color: var(--accent-amber);
+            color: var(--bg-dark);
+            border: none;
+            padding: 14px;
+            font-weight: 600;
+            font-size: 14px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 10px;
+        }
+        .btn-submit:hover {
+            background-color: #e0941b;
+        }
+
+        /* Success Response Styling */
+        .success-message {
+            display: none; 
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 85%;
+            text-align: center;
+        }
+        .success-message h5 {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            color: var(--accent-amber);
+            margin-bottom: 15px;
+        }
+        .success-message p {
+            font-size: 15px;
+            color: #cbd3d8;
+            line-height: 1.6;
+        }
+
+        /* Minimal Studio Contact Panel */
+        .booking-panel {
+            padding: 120px 0;
+            text-align: center;
+            background-color: var(--bg-light);
+        }
+        .studio-card {
+            max-width: 750px;
+            margin: 0 auto;
+            border: 1px solid var(--bg-dark);
+            padding: 60px 40px;
+            position: relative;
+        }
+        .studio-card h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 40px;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+        .studio-phone {
+            display: inline-block;
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--bg-dark);
+            text-decoration: none;
+            margin: 20px 0 10px 0;
+            transition: color 0.3s;
+        }
+        .studio-phone:hover {
+            color: var(--accent-amber);
+        }
+        .studio-email {
+            display: block;
+            color: #606870;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 30px;
+            transition: color 0.3s;
+        }
+        .studio-email:hover {
+            color: var(--accent-amber);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0b0d0f;
+            color: #606870;
+            text-align: center;
+            padding: 40px 0;
+            font-size: 13px;
+            letter-spacing: 0.5px;
+            border-top: 1px solid rgba(255,255,255,0.03);
+        }
+
+        /* Responsive Flow fixes */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 38px; }
+            .canvas-box { grid-template-columns: 1fr; gap: 40px; }
+            .studio-phone { font-size: 32px; }
+            .hero { padding: 80px 0; }
+            .services { padding: 70px 0; }
+            .logo-img { height: 45px; }
+            .map-input-wrapper { flex-direction: column; gap: 8px; }
+            .btn-maps-helper { padding: 12px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-container">
+            <a href="#" class="logo-frame">
+                <img src="Chalantika_bg.png" alt="Chalantika Logo" class="logo-img">
+            </a>
+            <a href="https://wa.me/917364925607" class="whatsapp-top" target="_blank">Connect on WhatsApp</a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Journeys curated with <em>comfort & style</em>.</h1>
+                <p>Experience local paths and far journeys seamlessly. We provide premium, reliable 4-wheeler passenger vehicle rentals tailored precisely around your schedule.</p>
+                <div class="cta-group">
+                    <a href="#reserve" class="btn-artistic">Book Online Directly</a>
+                    <a href="#collection" class="btn-link">Explore Service Details</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services" id="collection">
+        <div class="container">
+            <div class="section-header">
+                <span>Our Philosophy</span>
+                <h2>Passenger Services Reimagined</h2>
+            </div>
+            <div class="grid-layout">
+                <div class="art-card">
+                    <span class="card-num">01 //</span>
+                    <h3>Airport & Transit Links</h3>
+                    <p>Perfect timing layout built entirely around your departures and arrivals, assuring calm transit routines.</p>
+                </div>
+                <div class="art-card">
+                    <span class="card-num">02 //</span>
+                    <h3>Family Celebrations</h3>
+                    <p>Generous multi-passenger transit space configurations ensuring family travels stay together beautifully.</p>
+                </div>
+                <div class="art-card">
+                    <span class="card-num">03 //</span>
+                    <h3>Outstation Excursions</h3>
+                    <p>Extended cross-country mapping solutions managed by trusted, professional handling teams.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="canvas-section" id="reserve">
+        <div class="container">
+            <div class="canvas-box">
+                <div class="canvas-details">
+                    <h3 style="color: #ffffff;">The Fleet Canvas</h3>
+                    <p>We feature a pristine, systematically maintained White Maruti Eeco (Multi-Passenger Vehicle) optimized to fit your ultimate group travel demands flawlessly.</p>
+                    
+                    <div class="specs-row">
+                        <div class="spec-tag">[ A/C Luxury ]</div>
+                        <div class="spec-tag">[ Non-A/C Comfort ]</div>
+                    </div>
+
+                    <ul class="canvas-list">
+                        <li>High headroom clearance layout configurations</li>
+                        <li>Extensive rear trunk utility cargo space options</li>
+                        <li>Carefully driven and personally operated by the owner</li>
+                        <li>Pristine interior sanitization routines</li>
+                    </ul>
+
+                    <div class="vehicle-profile-graphic">
+                        <span class="graphic-header">[ Fleet Specifications ]</span>
+                        <div class="graphic-row">
+                            <span class="graphic-label">Model Configuration</span>
+                            <span class="graphic-value">Maruti Eeco MPV</span>
+                        </div>
+                        <div class="graphic-row">
+                            <span class="graphic-label">Exterior Color</span>
+                            <span class="graphic-value">Diamond White</span>
+                        </div>
+                        <div class="graphic-row">
+                            <span class="graphic-label">Handling Profile</span>
+                            <span class="graphic-value">Owner-Operated</span>
+                        </div>
+                        <div class="graphic-row">
+                            <span class="graphic-label">Cabin Options</span>
+                            <span class="graphic-value">Dual Zone A/C & Non-A/C</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-container">
+                    <div id="booking-form-wrapper">
+                        <h4>Direct Booking Inquiry</h4>
+                        <form id="chalantika-booking-form" action="https://formsubmit.co/chalantika03@gmail.com" method="POST">
+                            <input type="hidden" name="_honey" style="display:none">
+                            
+                            <input type="hidden" name="Estimated Cost Displayed" id="hidden-est-price">
+                            <input type="hidden" name="Fuel Base Calculation Rate" id="hidden-petrol-rate">
+
+                            <div class="form-group">
+                                <label>Your Name</label>
+                                <input type="text" name="Customer Name" class="form-control" required placeholder="John Doe">
+                            </div>
+                            <div class="form-group">
+                                <label>Mobile Number</label>
+                                <input type="tel" name="Phone Number" class="form-control" required placeholder="+91 XXXXX XXXXX">
+                            </div>
+                            <div class="form-group">
+                                <label>Journey Date</label>
+                                <input type="date" name="Travel Date" class="form-control" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Select General Route Matrix</label>
+                                <select name="General Route Plan" id="route-select" class="form-control" required>
+                                    <option value="Local Day Run" data-distance="80">Local Day Rental Run Package (Approx 80 km round-trip)</option>
+                                    <option value="Short Distance Intercity" data-distance="150">Short Distance Intercity Trip (Approx 150 km round-trip)</option>
+                                    <option value="Medium Outstation Journey" data-distance="300">Medium Outstation Tour Route (Approx 300 km round-trip)</option>
+                                    <option value="Long Range Expedition" data-distance="500">Long Range Outstation Journey (Approx 500 km round-trip)</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Vehicle Configuration</label>
+                                <select name="Service Choice" id="service-select" class="form-control" required>
+                                    <option value="Non-Air-Conditioned">Non-Air-Conditioned (Non-A/C) Service</option>
+                                    <option value="Air-Conditioned">Air-Conditioned (A/C) Service (+ Premium)</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Exact Pickup Location Link (Google Maps)</label>
+                                <div class="map-input-wrapper">
+                                    <input type="url" name="Exact Pickup Map Link" class="form-control" required placeholder="Paste Google Maps Share Link Here">
+                                    <a href="https://www.google.com/maps" target="_blank" class="btn-maps-helper">🗺️ Open Maps</a>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Exact Drop Location Link (Google Maps)</label>
+                                <div class="map-input-wrapper">
+                                    <input type="url" name="Exact Drop Map Link" class="form-control" required placeholder="Paste Google Maps Share Link Here">
+                                    <a href="https://www.google.com/maps" target="_blank" class="btn-maps-helper">🗺️ Open Maps</a>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Booking & Payment Preference</label>
+                                <div class="radio-group">
+                                    
+                                    <label class="radio-label-box">
+                                        <input type="radio" name="Booking Preference" value="Pay Full Advance via Email Invoice" checked>
+                                        <div class="radio-text-wrapper">
+                                            <span class="radio-title">Pay in Full Advance</span>
+                                            <span class="radio-desc">Receive a final calculated invoice directly via email to securely lock in plans.</span>
+                                        </div>
+                                    </label>
+
+                                    <label class="radio-label-box">
+                                        <input type="radio" name="Booking Preference" value="Pay 50% Advance via Email Invoice">
+                                        <div class="radio-text-wrapper">
+                                            <span class="radio-title">Split Payment (50% Advance)</span>
+                                            <span class="radio-desc">Pay 50% via email invoice to confirm scheduling, and the remaining 50% after trip completion.</span>
+                                        </div>
+                                    </label>
+
+                                    <label class="radio-label-box">
+                                        <input type="radio" name="Booking Preference" value="Request Pricing Review or Consultation via Email/Phone">
+                                        <div class="radio-text-wrapper">
+                                            <span class="radio-title">Discuss via Email or Phone Call</span>
+                                            <span class="radio-desc">Get an official fare quote calculated for your exact map links, or request a direct call to finalize route details.</span>
+                                        </div>
+                                    </label>
+
+                                </div>
+                            </div>
+
+                            <div class="price-estimator-box">
+                                <div class="price-flex">
+                                    <span class="price-label">Estimated Baseline Cost:</span>
+                                    <span class="price-value" id="price-display">₹0</span>
+                                </div>
+                                <span class="price-note" id="price-math-note">Calculated dynamically based on contemporary fuel index values.</span>
+                            </div>
+                            
+                            <button type="submit" class="btn-submit">Submit Booking Request</button>
+                        </form>
+                    </div>
+
+                    <div id="success-response" class="success-message">
+                        <h5>Submission Successful</h5>
+                        <p>Thank you for choosing Chalantika.<br>We shall contact you promptly.</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <section class="booking-panel">
+        <div class="container">
+            <div class="studio-card">
+                <h2>Initiate Travel Plans</h2>
+                <p style="color: #606870; font-size: 15px; margin-bottom: 10px;">Connect directly with the owner for custom itinerary quotes and specialized pricing configurations.</p>
+                <a href="tel:+917364925607" class="studio-phone">+91 73649 25607</a>
+                <a href="mailto:chalantika03@gmail.com" class="studio-email">chalantika03@gmail.com</a>
+                <p style="text-transform: uppercase; font-size: 11px; letter-spacing: 2px; color: #888;">Available everyday for localized and long-distance bookings</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>© 2026 Chalantika Passenger Service. Aesthetic Craftsmanship.</p>
+        </div>
+    </footer>
+
+    <script>
+        // EDIT THIS LINE WHENEVER PETROL PRICES IN INDIA CHANGE SIGNIFICANTLY
+        const CURRENT_PETROL_PRICE = 105.50; 
+        
+        // Vehicle mileage and operational metrics
+        const VEHICLE_MILEAGE = 12; // Average Eeco mileage under passenger load conditions (km per liter)
+        const BASE_DRIVER_MAINTENANCE_PER_KM = 4.50; // Wages, servicing wear-and-tear index allocation cost
+        const AC_PREMIUM_PER_KM = 2.00; // Extra charge per km to run cabin air cooling systems
+
+        const routeSelect = document.getElementById('route-select');
+        const serviceSelect = document.getElementById('service-select');
+        const priceDisplay = document.getElementById('price-display');
+        const mathNoteDisplay = document.getElementById('price-math-note');
+        
+        const hiddenPrice = document.getElementById('hidden-est-price');
+        const hiddenPetrol = document.getElementById('hidden-petrol-rate');
+
+        function calculateDynamicCost() {
+            // Find chosen journey configuration distance properties
+            const selectedOption = routeSelect.options[routeSelect.selectedIndex];
+            const distance = parseFloat(selectedOption.getAttribute('data-distance'));
+            
+            // Calculate fuel burn costs
+            const fuelNeeded = distance / VEHICLE_MILEAGE;
+            const totalFuelCost = fuelNeeded * CURRENT_PETROL_PRICE;
+            
+            // Calculate standard wear-and-tear / driver index margins
+            const maintenanceCost = distance * BASE_DRIVER_MAINTENANCE_PER_KM;
+            
+            let finalPrice = totalFuelCost + maintenanceCost;
+            
+            // Fixed comparison checking logic matching option tags accurately
+            if (serviceSelect.value === "Air-Conditioned") {
+                finalPrice += (distance * AC_PREMIUM_PER_KM);
+            }
+            
+            // Round nicely to presentation standards
+            const finalRoundedPrice = Math.round(finalPrice);
+            
+            // Update visual screens seamlessly
+            priceDisplay.innerText = "₹" + finalRoundedPrice.toLocaleString('en-IN');
+            mathNoteDisplay.innerText = "Approximate baseline calculation at ₹" + CURRENT_PETROL_PRICE + "/L. Official confirmation invoice with exact pin-to-pin route metrics and toll charges will be emailed directly to you.";
+            
+            // Store hidden fields safely so when form submits, values map over directly inside the email inbox
+            hiddenPrice.value = "₹" + finalRoundedPrice;
+            hiddenPetrol.value = "₹" + CURRENT_PETROL_PRICE + " per Liter";
+        }
+
+        // Fire updates instantly when values change over controls
+        routeSelect.addEventListener('change', calculateDynamicCost);
+        serviceSelect.addEventListener('change', calculateDynamicCost);
+        
+        // Initial setup generation run on layout window boot loading routine
+        calculateDynamicCost();
+
+        // Standard background communication logic setup structure
+        const form = document.getElementById('chalantika-booking-form');
+        const formWrapper = document.getElementById('booking-form-wrapper');
+        const successMessage = document.getElementById('success-response');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = new FormData(form);
+            
+            fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: { 'Accept': 'application/json' }
+            })
+            .then(response => {
+                if (response.ok) {
+                    formWrapper.style.display = 'none';
+                    successMessage.style.display = 'block';
+                    form.reset();
+                } else {
+                    alert("Oops! There was a problem submitting your request.");
+                }
+            })
+            .catch(error => {
+                alert("Network error encountered.");
+            });
+        });
+    </script>
+
+</body>
+</html>
