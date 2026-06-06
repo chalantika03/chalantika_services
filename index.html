@@ -638,10 +638,10 @@
                             <div class="form-group">
                                 <label>Select General Route Matrix</label>
                                 <select name="General Route Plan" id="route-select" class="form-control" required>
-                                    <option value="Local Day Run" data-distance="80">Local Day Rental Run Package (Approx 80 km round-trip)</option>
-                                    <option value="Short Distance Intercity" data-distance="150">Short Distance Intercity Trip (Approx 150 km round-trip)</option>
-                                    <option value="Medium Outstation Journey" data-distance="300">Medium Outstation Tour Route (Approx 300 km round-trip)</option>
-                                    <option value="Long Range Expedition" data-distance="500">Long Range Outstation Journey (Approx 500 km round-trip)</option>
+                                    <option value="Local Day Run" data-distance="80" data-rate="4.50">Local Day Rental Run Package (Approx 80 km round-trip)</option>
+                                    <option value="Short Distance Intercity" data-distance="150" data-rate="5.00">Short Distance Intercity Trip (Approx 150 km round-trip)</option>
+                                    <option value="Medium Outstation Journey" data-distance="300" data-rate="5.50">Medium Outstation Tour Route (Approx 300 km round-trip)</option>
+                                    <option value="Long Range Expedition" data-distance="500" data-rate="6.50">Long Range Outstation Journey (Approx 500 km round-trip)</option>
                                 </select>
                             </div>
 
@@ -733,10 +733,8 @@
     </footer>
 
     <script>
-        // FIXED: Updated Petrol Price to 114.46
         const CURRENT_PETROL_PRICE = 114.46; 
         const VEHICLE_MILEAGE = 12; 
-        const BASE_DRIVER_MAINTENANCE_PER_KM = 5.50; 
         const AC_PREMIUM_PER_KM = 2.00; 
 
         const routeSelect = document.getElementById('route-select');
@@ -751,9 +749,12 @@
             const selectedOption = routeSelect.options[routeSelect.selectedIndex];
             const distance = parseFloat(selectedOption.getAttribute('data-distance'));
             
+            // NEW: Pull dynamic rate based on distance tier
+            const dynamicMaintenanceRate = parseFloat(selectedOption.getAttribute('data-rate'));
+            
             const fuelNeeded = distance / VEHICLE_MILEAGE;
             const totalFuelCost = fuelNeeded * CURRENT_PETROL_PRICE;
-            const maintenanceCost = distance * BASE_DRIVER_MAINTENANCE_PER_KM;
+            const maintenanceCost = distance * dynamicMaintenanceRate;
             
             let finalPrice = totalFuelCost + maintenanceCost;
             
