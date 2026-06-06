@@ -670,7 +670,7 @@
                                         <input type="radio" name="Booking Preference" value="Pay Full Advance via Email Invoice" checked>
                                         <div class="radio-text-wrapper">
                                             <span class="radio-title">Pay in Full Advance</span>
-                                            <span class="radio-desc">Receive a final calculated invoice directly via email to securely lock in plans.</span>
+                                            <span class="radio-desc">Receive a final calculated invoice directly via whatsapp to securely lock in plans.</span>
                                         </div>
                                     </label>
 
@@ -678,14 +678,14 @@
                                         <input type="radio" name="Booking Preference" value="Pay 50% Advance via Email Invoice">
                                         <div class="radio-text-wrapper">
                                             <span class="radio-title">Split Payment (50% Advance)</span>
-                                            <span class="radio-desc">Pay 50% via email invoice to confirm scheduling, and the remaining 50% after trip completion.</span>
+                                            <span class="radio-desc">Pay 50% via whatsapp invoice to confirm scheduling, and the remaining 50% after trip completion.</span>
                                         </div>
                                     </label>
 
                                     <label class="radio-label-box">
                                         <input type="radio" name="Booking Preference" value="Request Pricing Review or Consultation via Email/Phone">
                                         <div class="radio-text-wrapper">
-                                            <span class="radio-title">Discuss via Email or Phone Call</span>
+                                            <span class="radio-title">Discuss via Whatsapp or Phone Call</span>
                                             <span class="radio-desc">Get an official fare quote calculated for your destinations, or request a direct call.</span>
                                         </div>
                                     </label>
@@ -765,8 +765,7 @@
             const finalRoundedPrice = Math.round(finalPrice);
             
             priceDisplay.innerText = "₹" + finalRoundedPrice.toLocaleString('en-IN');
-            mathNoteDisplay.innerText = "Approximate baseline calculation at ₹" + CURRENT_PETROL_PRICE + "/L. Official confirmation invoice with exact pin-to-pin route metrics and toll charges will be emailed directly to you.";
-            
+            mathNoteDisplay.innerText = "Approximate baseline calculation at ₹" + CURRENT_PETROL_PRICE + "/L. Exact cost will be sent to you on whatsapp. *Toll charges, parking, and driver meals are not included in this baseline cost and are to be borne by the customer.";
             hiddenPrice.value = "₹" + finalRoundedPrice;
             hiddenPetrol.value = "₹" + CURRENT_PETROL_PRICE + " per Liter";
         }
