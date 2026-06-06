@@ -256,7 +256,7 @@
             border-radius: 50%;
         }
 
-        /* Artistic Vehicle Graphic Box Placeholder */
+        /* Artistic Vehicle Specification Box Layout */
         .vehicle-profile-graphic {
             border: 1px dashed rgba(255, 255, 255, 0.2);
             background-color: rgba(255, 255, 255, 0.02);
@@ -560,7 +560,7 @@
                 <div class="art-card">
                     <span class="card-num">03 //</span>
                     <h3>Outstation Excursions</h3>
-                    <p>Journey that may take overnight.</p>
+                    <p>Extended interstate mapping solutions managed by trusted, professional handling teams.</p>
                 </div>
             </div>
         </div>
@@ -628,6 +628,11 @@
                             <div class="form-group">
                                 <label>Journey Date</label>
                                 <input type="date" name="Travel Date" class="form-control" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Preferred Pickup Time</label>
+                                <input type="time" name="Pickup Time" class="form-control" required>
                             </div>
                             
                             <div class="form-group">
@@ -728,6 +733,7 @@
     </footer>
 
     <script>
+        // FIXED: Updated Petrol Price to 114.46
         const CURRENT_PETROL_PRICE = 114.46; 
         const VEHICLE_MILEAGE = 12; 
         const BASE_DRIVER_MAINTENANCE_PER_KM = 4.50; 
