@@ -336,31 +336,6 @@
             background-color: var(--bg-dark);
             color: #ffffff;
         }
-        
-        /* Map Layout Elements */
-        .map-input-wrapper {
-            display: flex;
-            gap: 10px;
-        }
-        .btn-maps-helper {
-            background-color: rgba(255, 255, 255, 0.1);
-            color: #ffffff;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            padding: 0 15px;
-            font-size: 12px;
-            cursor: pointer;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            white-space: nowrap;
-            transition: 0.3s;
-        }
-        .btn-maps-helper:hover {
-            background-color: var(--accent-amber);
-            color: var(--bg-dark);
-            border-color: var(--accent-amber);
-        }
 
         /* Radio Options Layout Group */
         .radio-group {
@@ -538,8 +513,6 @@
             .hero { padding: 80px 0; }
             .services { padding: 70px 0; }
             .logo-img { height: 45px; }
-            .map-input-wrapper { flex-direction: column; gap: 8px; }
-            .btn-maps-helper { padding: 12px; }
         }
     </style>
 </head>
@@ -637,6 +610,8 @@
                     <div id="booking-form-wrapper">
                         <h4>Direct Booking Inquiry</h4>
                         <form id="chalantika-booking-form" action="https://formsubmit.co/chalantika03@gmail.com" method="POST">
+                            
+                            <input type="hidden" name="_captcha" value="false">
                             <input type="hidden" name="_honey" style="display:none">
                             
                             <input type="hidden" name="Estimated Cost Displayed" id="hidden-est-price">
@@ -644,7 +619,7 @@
 
                             <div class="form-group">
                                 <label>Your Name</label>
-                                <input type="text" name="Customer Name" class="form-control" required placeholder="John Doe">
+                                <input type="text" name="Customer Name" class="form-control" required placeholder="Your Full Name">
                             </div>
                             <div class="form-group">
                                 <label>Mobile Number</label>
@@ -674,25 +649,18 @@
                             </div>
                             
                             <div class="form-group">
-                                <label>Exact Pickup Location Link (Google Maps)</label>
-                                <div class="map-input-wrapper">
-                                    <input type="url" name="Exact Pickup Map Link" class="form-control" required placeholder="Paste Google Maps Share Link Here">
-                                    <a href="https://www.google.com/maps" target="_blank" class="btn-maps-helper">🗺️ Open Maps</a>
-                                </div>
+                                <label>Exact Pickup Location / Landmark</label>
+                                <input type="text" name="Pickup Location" class="form-control" required placeholder="e.g., Railway Station, Stand, or landmark">
                             </div>
 
                             <div class="form-group">
-                                <label>Exact Drop Location Link (Google Maps)</label>
-                                <div class="map-input-wrapper">
-                                    <input type="url" name="Exact Drop Map Link" class="form-control" required placeholder="Paste Google Maps Share Link Here">
-                                    <a href="https://www.google.com/maps" target="_blank" class="btn-maps-helper">🗺️ Open Maps</a>
-                                </div>
+                                <label>Exact Drop Location / Landmark</label>
+                                <input type="text" name="Drop Location" class="form-control" required placeholder="e.g., Hotel, school name, or specific town area">
                             </div>
 
                             <div class="form-group">
                                 <label>Booking & Payment Preference</label>
                                 <div class="radio-group">
-                                    
                                     <label class="radio-label-box">
                                         <input type="radio" name="Booking Preference" value="Pay Full Advance via Email Invoice" checked>
                                         <div class="radio-text-wrapper">
@@ -713,10 +681,9 @@
                                         <input type="radio" name="Booking Preference" value="Request Pricing Review or Consultation via Email/Phone">
                                         <div class="radio-text-wrapper">
                                             <span class="radio-title">Discuss via Email or Phone Call</span>
-                                            <span class="radio-desc">Get an official fare quote calculated for your exact map links, or request a direct call to finalize route details.</span>
+                                            <span class="radio-desc">Get an official fare quote calculated for your destinations, or request a direct call.</span>
                                         </div>
                                     </label>
-
                                 </div>
                             </div>
 
@@ -734,7 +701,7 @@
 
                     <div id="success-response" class="success-message">
                         <h5>Submission Successful</h5>
-                        <p>Thank you for choosing Chalantika.<br>We shall contact you promptly.</p>
+                        <p>Thank you for choosing Chalantika.<br>Your details have been transmitted safely on autopilot. We shall contact you promptly.</p>
                     </div>
                 </div>
                 
@@ -761,13 +728,10 @@
     </footer>
 
     <script>
-        // EDIT THIS LINE WHENEVER PETROL PRICES IN INDIA CHANGE SIGNIFICANTLY
         const CURRENT_PETROL_PRICE = 105.50; 
-        
-        // Vehicle mileage and operational metrics
-        const VEHICLE_MILEAGE = 12; // Average Eeco mileage under passenger load conditions (km per liter)
-        const BASE_DRIVER_MAINTENANCE_PER_KM = 4.50; // Wages, servicing wear-and-tear index allocation cost
-        const AC_PREMIUM_PER_KM = 2.00; // Extra charge per km to run cabin air cooling systems
+        const VEHICLE_MILEAGE = 12; 
+        const BASE_DRIVER_MAINTENANCE_PER_KM = 4.50; 
+        const AC_PREMIUM_PER_KM = 2.00; 
 
         const routeSelect = document.getElementById('route-select');
         const serviceSelect = document.getElementById('service-select');
@@ -778,44 +742,33 @@
         const hiddenPetrol = document.getElementById('hidden-petrol-rate');
 
         function calculateDynamicCost() {
-            // Find chosen journey configuration distance properties
             const selectedOption = routeSelect.options[routeSelect.selectedIndex];
             const distance = parseFloat(selectedOption.getAttribute('data-distance'));
             
-            // Calculate fuel burn costs
             const fuelNeeded = distance / VEHICLE_MILEAGE;
             const totalFuelCost = fuelNeeded * CURRENT_PETROL_PRICE;
-            
-            // Calculate standard wear-and-tear / driver index margins
             const maintenanceCost = distance * BASE_DRIVER_MAINTENANCE_PER_KM;
             
             let finalPrice = totalFuelCost + maintenanceCost;
             
-            // Fixed comparison checking logic matching option tags accurately
             if (serviceSelect.value === "Air-Conditioned") {
                 finalPrice += (distance * AC_PREMIUM_PER_KM);
             }
             
-            // Round nicely to presentation standards
             const finalRoundedPrice = Math.round(finalPrice);
             
-            // Update visual screens seamlessly
             priceDisplay.innerText = "₹" + finalRoundedPrice.toLocaleString('en-IN');
             mathNoteDisplay.innerText = "Approximate baseline calculation at ₹" + CURRENT_PETROL_PRICE + "/L. Official confirmation invoice with exact pin-to-pin route metrics and toll charges will be emailed directly to you.";
             
-            // Store hidden fields safely so when form submits, values map over directly inside the email inbox
             hiddenPrice.value = "₹" + finalRoundedPrice;
             hiddenPetrol.value = "₹" + CURRENT_PETROL_PRICE + " per Liter";
         }
 
-        // Fire updates instantly when values change over controls
         routeSelect.addEventListener('change', calculateDynamicCost);
         serviceSelect.addEventListener('change', calculateDynamicCost);
-        
-        // Initial setup generation run on layout window boot loading routine
         calculateDynamicCost();
 
-        // Standard background communication logic setup structure
+        // Ajax submission execution handling without moving away from the page
         const form = document.getElementById('chalantika-booking-form');
         const formWrapper = document.getElementById('booking-form-wrapper');
         const successMessage = document.getElementById('success-response');
@@ -835,11 +788,11 @@
                     successMessage.style.display = 'block';
                     form.reset();
                 } else {
-                    alert("Oops! There was a problem submitting your request.");
+                    alert("Submission glitch encountered. Please verify inputs.");
                 }
             })
             .catch(error => {
-                alert("Network error encountered.");
+                alert("Network error. Check connection settings.");
             });
         });
     </script>
